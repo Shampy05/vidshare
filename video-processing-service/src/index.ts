@@ -4,6 +4,10 @@ import ffmpeg from "fluent-ffmpeg"; // wrapper around cli ffmpeg
 const app = express();
 app.use(express.json()); // parse json request body
 
+app.get("/", (req, res) => {
+    res.send("Hi")
+})
+
 app.post("/process-video", (req, res) => {
     // get path of video to process from the request body
     const inputPath = req.body.inputPath; 
