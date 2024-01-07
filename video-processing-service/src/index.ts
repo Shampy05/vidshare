@@ -41,7 +41,7 @@ app.post("/process-video", async (req, res) => {
             deleteProcessedVideo(outputFileName)
         ]); 
         console.log(err);
-        return res.status(500).send('Internal server error: video processing failed.'). 
+        return res.status(500).send('Internal server error: video processing failed.');  
     }
 
     // Upload the processed video to cloud storage from the local filesystem
