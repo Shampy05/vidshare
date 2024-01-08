@@ -1,5 +1,4 @@
 // Import the functions you need from the SDKs you need
-import exp from "constants";
 import { initializeApp } from "firebase/app";
 import { 
     getAuth, 

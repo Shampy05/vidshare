@@ -6,6 +6,7 @@ import SignIn from "./sign-in";
 import { onAuthStateChange } from "../utils/firebase/firebase";
 import { useEffect, useState } from "react";
 import { User } from "firebase/auth";
+import Upload from "./upload";
 
 export default function Navbar() {
     // init user state 
@@ -30,6 +31,9 @@ export default function Navbar() {
                 alt="Vidshare Logo" 
                 />
             </Link>
+            {
+                user && <Upload />
+            }
             <SignIn user={user} />
         </div>
     ); 
