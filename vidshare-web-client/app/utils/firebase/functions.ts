@@ -1,8 +1,18 @@
-import { getFunctions, httpsCallable } from "firebase/functions";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "./firebase";
 
-const functions = getFunctions();
 
-const generateUploadSignedUrl = httpsCallable(functions, "generateUploadSignedUrl"); 
+const generateUploadSignedUrl = httpsCallable(functions, "generateUploadSignedUrl");
+const getVideosFunction = httpsCallable(functions, "getVideos");
+
+export interface Video {
+    id?: string;
+    uid?: string;
+    status?: string;
+    filename?: string;
+    title?: string;
+    description?: string;
+}
 
 export async function uploadVideo(file: File) {
     console.log("Uploading video...");
@@ -23,4 +33,9 @@ export async function uploadVideo(file: File) {
     })
 
     return; 
+}
+
+export async function getVideos() {
+    const response: any = await getVideosFunction();
+    return response.data as Video[];
 }
