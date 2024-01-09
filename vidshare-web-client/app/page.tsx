@@ -9,7 +9,10 @@ export default async function Home() {
       {
         videos.map((video) => (
           // eslint-disable-next-line react/jsx-key
-          <Link href={`/watch?v=${video.filename}`}>
+          <Link 
+          href={`/watch?v=${video.filename}`}
+          key={video.id}
+          >
             <Image 
             src={'/tiny-video-symbol.png'} 
             alt='video' 
@@ -23,3 +26,5 @@ export default async function Home() {
     </main>
   )
 }
+
+export const revalidate = 30; 
